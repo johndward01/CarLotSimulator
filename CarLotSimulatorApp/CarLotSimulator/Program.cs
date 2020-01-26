@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CarLotSimulator
 {
@@ -6,6 +7,41 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
+            var Carlist = new Carlot();
+
+            Car mustang = new Car() { Year = 2004, Make = "Ford", Model = "Mustang" };
+            mustang.MakeEngineNoise("VROOOOM");
+            mustang.MakeHonkNoise("Beep");
+            var Inventory = new Carlot() { Carlist = (Car)mustang };
+
+            
+
+            Car Cherokee = new Car();
+            Cherokee.Year = 1974;
+            Cherokee.Make = "Jeep";
+            Cherokee.Model = "Cherokee";
+            Cherokee.MakeEngineNoise("Sputter");
+            Cherokee.MakeHonkNoise("Meep");
+
+            Carlist.Add(Cherokee);
+
+
+            Car Corolla = new Car()
+            {
+                Year = 2008,
+                Make = "Toyota",
+                Model = "Corolla"
+            };
+            Corolla.MakeEngineNoise("whir");
+            Corolla.MakeHonkNoise("Clown horn sound");
+
+            Carlist.Add(Corolla);
+
+            foreach( var x in Carlist)
+            {
+                Console.WriteLine(x);
+            }
+
             //TODO
 
             //Create a seperate class file called Car
